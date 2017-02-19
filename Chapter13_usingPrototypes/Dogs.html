@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Dog</title>
+        <meta charset="utf-8">
+        <script>
+            function Dog(name, breed, weight) {
+                this.name = name;
+                this.breed = breed;
+                this.weight = weight;
+            }
+
+            Dog.prototype.species = "Canine";
+            Dog.prototype.bark = function() {
+                console.log("Woof!");
+            }
+            Dog.prototype.run = function() {
+                console.log("Run!");
+            }
+
+            function ShowDog(name, breed, weight, handler) {
+                Dog.call(this, name, breed, weight)
+                this.handler = handler;
+            }
+
+            ShowDog.prototype = new Dog();
+            ShowDog.prototype.league = "Webville";
+            ShowDog.prototype.bait = function() {
+                console.log("bait");
+            };
+            ShowDog.prototype.groom = function() {
+                console.log("groom");
+            };
+            ShowDog.prototype.constructor = ShowDog;
+
+            var fido = new Dog("fido", "golden retriver", 10);
+            var scotty = new ShowDog("Scotty", "Scottish Terrier", 15, "cookie");
+            if (fido instanceof Dog) {
+                console.log("Fido is a dog");
+            }
+            if (fido instanceof ShowDog) {
+                console.log("Fido is a show dog")
+            }
+            if (scotty instanceof Dog) {
+                console.log("scotty is a dog")
+            }
+            if (scotty instanceof ShowDog) {
+                console.log("Scotty is a show dog")
+            }
+
+            console.log("Fido constructor is: " + fido.constructor);
+            console.log("Scotty constructor is: " + scotty.constructor);
+        </script>
+    </head>
+<html>

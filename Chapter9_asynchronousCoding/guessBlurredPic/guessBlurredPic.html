@@ -1,0 +1,49 @@
+<!--How to realize the following application:
+    when the image is blurred, show the Answer when click, when the image is clear, hide the answer when clicked;
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Guess the image</title>
+    <style> 
+        body { margin: 20px; } 
+        img {margin: 20px;}
+    </style>
+    <script>
+        window.onload = init;
+        function init() {
+            var image = document.getElementsByTagName("img");
+            for (var i = 0; i < image.length; i++) {
+                image[i].onclick = showAnswer;
+            }
+        }
+
+
+        function showAnswer(eventObj) {
+            var image = eventObj.target;
+            var name = image.id + ".jpg";
+            image.src = name;
+            function reblur() {
+                var name = image.id + "blur.jpg";
+                image.src = name;
+            };
+            setTimeout(reblur, 2000);
+        }
+
+        
+
+    </script>
+</head>
+
+<body>
+    <img id="zero" src="zeroblur.jpg">
+    <img id="one" src="oneblur.jpg">
+    <img id="two" src="twoblur.jpg">
+    <img id="three" src="threeblur.jpg">
+    <img id="four" src="fourblur.jpg">
+    <img id="five" src="fiveblur.jpg">
+</body>
+
+</html>
