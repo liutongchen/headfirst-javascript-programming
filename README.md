@@ -1,2 +1,2 @@
 # headfirst-javascript-programming
-My exercises of the book HeadFirst Javascript Programming during my self-learning process.
+Javascript projects I have done while following the book HeadFirst Javascript Programming.
